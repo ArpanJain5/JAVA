@@ -49,13 +49,12 @@ public class SellingDao {
 		}
 		return list;
 	}
-	public static List<Selling> ProductList(int id){
+	public static List<Selling> ProductList(){
 		List<Selling> list = new ArrayList<Selling>();
 		try {
 			Connection conn = DBConnection.createConnection();
 			String sql="select * from sellingdata where status='unsold'";
 			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()) {
 				Selling w = new Selling();
